@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="Notes.css">
+  <title>Notes</title>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="logo">
+      <a href="index.html"><h1>ASFC Film.</h1></a>
+    </div>
+    
+    <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <ul class="nav-main-menu">
+      <li class="dropdown">
+        <a href="#" class="nav-link"><span>Revision</span> <i class="fa fa-chevron-down"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="Fact sheets.html">Fact sheets</a></li>
+          <li><a href="Quizzes.html">Quizzes</a></li>
+          <li><a href="Notes.html">Notes</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="nav-link"><span>Past papers</span> <i class="fa fa-chevron-down"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="past paper questions.html">Past paper questions</a></li>
+          <li><a href="essays.html">Essays</a></li>
+          <li><a href="essayplans.html">Essay plans</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="nav-link"><span>YouTube</span> <i class="fa fa-chevron-down"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="https://www.youtube.com/@TheCinemaCartography">The Cinema Cartography</a></li>
+          <li><a href="https://www.youtube.com/@StudioBinder">StudioBinder</a></li>
+          <li><a href="https://www.youtube.com/@InDepthCine">In Depth Cine</a></li>
+        </ul>
+      </li>
+    </ul>
+    <button class="btn"><span>Search</span> <i class="fas fa-search"></i></button>
+  </nav>
+
+  <div class="container">
+    <!-- Notes Section -->
+    <div id="noteSection">
+      <h2>Notes</h2>
+      <div contenteditable="true" id="editor" onmouseup="highlightText()">Type your notes here...</div>
+      <div class="button-container">
+        <button class="btn" onclick="saveToWebsite()">Save</button>
+        <button class="btn" onclick="saveToFile()">Save to computer</button>
+
+      </div>
+    </div>
+  
+    <!-- Button to Unhide PDF Viewer -->
+    <button class="btn" onclick="unhidePdfViewer()">Unhide PDF Viewer</button>
+  
+    <!-- PDF Viewer Section -->
+    <div id="pdfViewerSection" style="display: none;">
+      <div class="pdf-controls">
+        <span>PDF viewer</span>
+        <button id="toggleBtn" onclick="toggleEditor()">Hide PDF Viewer</button>
+      </div>
+      <button class="btn" onclick="triggerPdfUpload()">Import PDF from local files</button>
+      <input type="file" id="pdfUpload" accept="application/pdf" style="display: none;" onchange="handlePdfSelection(event)" />
+      <iframe id="pdfWindow" width="100%" height="400px" style="display: none;"></iframe>
+    </div>
+  </div>
+  
+
+  <script src="Notes script.js"></script>
+</body>
+</html>

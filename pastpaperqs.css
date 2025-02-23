@@ -1,0 +1,212 @@
+/* POPPINS FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ===== Reset some default styles ===== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== VARIABLES ===== */
+:root{
+    --bg-color:  #e7f4f4;
+    --primary-color: #507c94;
+    --second-color: #7db4d1;
+    --hover-bg-color: #efefef;
+    --shadow-1: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    --shadow-2: 0px 2px 10px #1a70e066;
+}
+/* ===== BODY ===== */
+body{
+    background: url("../img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* ===== Reusable CSS ===== */
+a{
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+ul{
+    list-style-type: none;
+}
+
+/* ===== Menu Toggle ===== */
+.menu-toggle{
+    display: none;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* ===== Navigation Bar ===== */
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 3vw;
+    height: 70px;
+    background: var(--bg-color);
+    color: var(--primary-color);
+}
+.logo h1{
+    font-weight: 600;
+}
+.nav-main-menu{
+    display: flex;
+}
+.nav-link{
+    padding: 26px 10px;
+    margin-inline: 10px;
+    transition: .3s;
+}
+.nav-link:hover{
+    color: var(--second-color);
+}
+.nav span{
+    margin-right: 5px;
+}
+.fa-chevron-down, .fa-chevron-right{
+    font-size: 12px;
+    transition: .3s;
+}
+
+.dropdown:hover .fa-chevron-down, .sub-dropdown:hover .fa-chevron-right{
+    transform: rotate(180deg);
+}
+.dropdown:hover .nav-link{
+    color: var(--second-color);
+}
+
+/* ===== Dropdown ===== */
+.dropdown{
+    position: relative;
+}
+.nav-main-menu .dropdown-content{
+    display: none;
+    position: absolute;
+    top: 46px;
+    left: 0;
+    background: var(--bg-color);
+    min-width: 240px;
+    border-top: 3px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 3px 3px;
+    animation: slideUp .3s;
+}
+.dropdown-content li{
+    padding: 20px;
+}
+.dropdown-content li:hover{
+    background: var(--hover-bg-color);
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+/* ===== Sub - Dropdown ===== */
+.nav-main-menu .sub-dropdown-content{
+   display: none;
+   position: absolute;
+   top: 34%;
+   left: 100%;
+   background: var(--bg-color);
+   min-width: 240px;
+   border-top: 3px solid #ccc;
+   border-radius: 3px;
+   animation: slideUp .3s;
+   box-shadow: var(--shadow-1);
+}
+@keyframes slideUp {
+    from{
+        margin-top: 20px;
+    }
+    to{
+        margin-top: 0;
+    }
+}
+.dropdown-link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sub-dropdown:hover .sub-dropdown-content{
+    display: block;
+}
+.btn{
+    font-size: 15px;
+    background-color: var(--second-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-2);
+    cursor: pointer;
+    transition: .3s;
+}
+.btn:hover{
+    opacity: 0.9;
+}
+
+main{
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 12vh;
+    color: #507c94;
+    padding: 20px;
+}
+
+/* ===== Responsive styles ===== */
+
+@media only screen and (max-width: 794px){
+    .nav-main-menu{
+        display: none;
+    }
+    .menu-toggle{
+        display: block;
+    }
+}
+
+
+.centered-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+}
+
+.centered-links h1 {
+    grid-column: 1 / -1; /* Makes the header span across all columns */
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Each essay-plan item in the grid */
+.essay-plan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.essay-image {
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Force third row to have only 3 items */
+.centered-links .essay-plan:nth-child(11) {
+    grid-column: span 1 / span 1;
+}
